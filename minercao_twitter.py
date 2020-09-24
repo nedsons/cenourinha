@@ -19,18 +19,18 @@ def coleta_tweets(searchQuery, grupo, num):
 				try:
 					if max_id <= 0:
 						if not sinceId:
-							new_tweets = api.search(searchQuery, count=tweetsPerQry, lang='pt')
+							new_tweets = api.search(searchQuery, count=tweetsPerQry, lang='pt', tweet_mode="extended")
 						else:
 							new_tweets = api.search(searchQuery, count=tweetsPerQry,
-													since_id=sinceId, lang='pt')
+													since_id=sinceId, lang='pt', tweet_mode="extended")
 					else:
 						if not sinceId:
 							new_tweets = api.search(searchQuery, count=tweetsPerQry,
-													max_id=str(max_id - 1), lang='pt')
+													max_id=str(max_id - 1), lang='pt', tweet_mode="extended")
 						else:
 							new_tweets = api.search(searchQuery, count=tweetsPerQry,
 													max_id=str(max_id - 1),
-													since_id=sinceId, lang='pt')
+													since_id=sinceId, lang='pt', tweet_mode="extended")
 					if not new_tweets:
 						print("No more tweets found")
 						break
